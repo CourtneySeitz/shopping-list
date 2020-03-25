@@ -19,7 +19,7 @@
 //Hint: you may find it helpful to read up on and use the following jQuery methods: .submit(), preventDefault(), toggleClass(), and closest().
 
 $(document).ready(function(){
-  $(".js-shopping-list-form").click(function(e){
+  $("input").click(function(e){
     console.log("it works!");
   });
 });
