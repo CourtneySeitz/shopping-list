@@ -18,29 +18,23 @@
 
 $(function() {
   $('form button').click(function(event) {
+    $('#shopping-list-entry').submit();
     event.preventDefault();
     let userInput = $('#shopping-list-entry').val();
     $('.shopping-list').append('<li> <span class="shopping-item">' + userInput + '</span> <div class="shopping-item-controls"> <button class="shopping-item-toggle"> <span class="button-label">check</span> </button> <button class="shopping-item-delete"> <span class="button-label">delete</span> </button> </div> </li>');
   });
+
+  //event for deleting item on shopping list
 
   $('.shopping-item-delete').click(function(event) {
     event.preventDefault();
     $(this).parents('li').remove();
   });
 
+  //event for crossing through item on shopping list
+
   $('.shopping-item-toggle').click(function(event) {
     event.preventDefault();
     $(this).closest('li').find('.shopping-item').toggleClass('shopping-item shopping-item shopping-item__checked');
   });
 });
-
-
-
-
-
-
-
-
-
-//change class for shopping item to checked or not toggleClass?
-//delete/remove shopping item li on click of delete button
