@@ -21,7 +21,7 @@
 
 
 $(function() {
-  $('form button').click(event => {
+  $('form button').click(function(event) {
     //console.log(event.currentTarget);
     event.preventDefault();
     let userInput = $('#shopping-list-entry').val();
@@ -33,6 +33,18 @@ $(function() {
     event.preventDefault();
     $(this).parents('li').remove();
   });
+
+  $('.shopping-item-toggle').click(function(event) {
+    event.preventDefault();
+    //console.log($(event.currentTarget));
+    //console.log($(event.target));
+    //console.log($(this));
+  //$('.shopping-item').removeClass('.shopping-item__checked');
+  //$('.shopping-item-controls').prev().toggleClass('shopping-item shopping-item shopping-item__checked');
+
+$(this).closest('li').find('.shopping-item').toggleClass('shopping-item shopping-item shopping-item__checked');
+
+});
 });
 
 
