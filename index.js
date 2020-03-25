@@ -16,8 +16,11 @@
 //Hint: you may find it helpful to read up on and use the following jQuery methods: .submit(), preventDefault(), toggleClass(), and closest().
 
 
+//**TO DO need to allow for dynamically added elements to be manipulated by the click events (delete and check). Ran out of time
+
+
 $(function() {
-  $('form button').click(function(event) {
+  $('form button').on('click', function(event) {
     $('#shopping-list-entry').submit();
     event.preventDefault();
     let userInput = $('#shopping-list-entry').val();
@@ -26,15 +29,17 @@ $(function() {
 
   //event for deleting item on shopping list
 
-  $('.shopping-item-delete').click(function(event) {
+  $('.shopping-item-delete').on('click', function(event) {
     event.preventDefault();
     $(this).parents('li').remove();
+    console.log(event.currentTarget);
   });
 
   //event for crossing through item on shopping list
 
-  $('.shopping-item-toggle').click(function(event) {
+  $('.shopping-item-toggle').on('click', function(event) {
     event.preventDefault();
     $(this).closest('li').find('.shopping-item').toggleClass('shopping-item shopping-item shopping-item__checked');
+    console.log(event.currentTarget);
   });
 });
