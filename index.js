@@ -18,8 +18,30 @@
 //Do not alter index.html or main.css other than adding the links to the external JavaScript inside index.html. Write JavaScript code that works with the existing HTML and CSS to implement the required features.
 //Hint: you may find it helpful to read up on and use the following jQuery methods: .submit(), preventDefault(), toggleClass(), and closest().
 
-$(document).ready(function(){
-  $("input").click(function(e){
-    console.log("it works!");
+
+
+$(function() {
+  $('form button').click(event => {
+    //console.log(event.currentTarget);
+    event.preventDefault();
+    let userInput = $('#shopping-list-entry').val();
+    $('.shopping-list').append('<li> <span class="shopping-item">' + userInput + '</span> <div class="shopping-item-controls"> <button class="shopping-item-toggle"> <span class="button-label">check</span> </button> <button class="shopping-item-delete"> <span class="button-label">delete</span> </button> </div> </li>');
+    //console.log(userInput);
+  });
+
+  $('.shopping-item-delete').click(function(event) {
+    event.preventDefault();
+    $(this).parents('li').remove();
   });
 });
+
+
+
+
+
+
+
+
+
+//change class for shopping item to checked or not toggleClass?
+//delete/remove shopping item li on click of delete button
