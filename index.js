@@ -29,15 +29,16 @@ $(function() {
 
   //event for deleting item on shopping list
 
-  $('.shopping-item-delete').on('click', function(event) {
+  $('body').on('click', '.shopping-item-delete', function(event) {
     event.preventDefault();
-    $(this).parents('li').remove();
+    //$(this).parents('li').remove();
+    $(this).closest('li').remove();
     console.log(event.currentTarget);
   });
 
   //event for crossing through item on shopping list
 
-  $('.shopping-item-toggle').on('click', function(event) {
+  $('body').on('click', '.shopping-item-toggle', function(event) {
     event.preventDefault();
     $(this).closest('li').find('.shopping-item').toggleClass('shopping-item shopping-item shopping-item__checked');
     console.log(event.currentTarget);
